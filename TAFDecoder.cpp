@@ -50,6 +50,14 @@ namespace TAFDecoding
 				if(temp.find("G") != string::npos){
 					decMessage.append("\n\t\tGusts with " + temp.substr(5,7) + "KT");
 				}
+				if(messages[i+1].find("9999") != string::npos){
+					decMessage.append(messages[i+1] + "\t\tview is 10km or more\n");
+					i++;
+				}
+				else if(messages[i+1].find("4000") != string::npos){
+					decMessage.append(messages[i+1] + "\t\tview to floor\n");
+					i++;
+				}
 				if(messages[i+1].find("V") != string::npos){
 					decMessage.append("\n\t\twith Variation of two extreme winds " + messages[i+1] + "\n");
 					i++;
